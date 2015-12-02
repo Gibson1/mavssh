@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean name="person" class="us.xuhang.project.domain.Person">
+    <property name="age" value="23" />
+</bean>

@@ -105,4 +105,21 @@ public class User {
 		session.close();
 		factory.close();
 	}
+	
+	@Test
+	public void testSpringHibernate(){
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"applicationContext.xml");
+		SessionFactory factory = (SessionFactory) context.getBean("sessionFactory");
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		User p = (User) context.getBean("user");
+		p.setUid(UUID.randomUUID().toString());
+		p.setName("Catherine");
+		session.save(p);
+		tx.commit();
+		session.close();
+		factory.close();
+	}
 }

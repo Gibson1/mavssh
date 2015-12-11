@@ -5,4 +5,12 @@
 	<bean name="user" class="com.gibson.mssh.cn.User">
 		<property name="age" value="23" />
 	</bean>
+	
+	<!-- 如果关于数据库的属性在hibernate.cfg.xml中配置了，设置hibernate.cfg.xml的location即可 -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+    </bean>
+    
 </beans>

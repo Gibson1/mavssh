@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean name="user" class="com.gibson.mssh.cn.User">
 		<property name="age" value="23" />
 	</bean>
-	
+
 	<!-- 用Bean定义c3p0数据源 -->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test" />
-        <property name="user" value="root" />
-        <property name="password" value="mysql" />
-    </bean>
-	
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test" />
+		<property name="user" value="root" />
+		<property name="password" value="mysql" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<!-- 如果关于数据库的属性在hibernate.cfg.xml中配置了，设置hibernate.cfg.xml的location即可 -->
-        <!-- <property name="configLocation">
-            <value>classpath:hibernate.cfg.xml</value>
-        </property> -->
-        
+		<!-- <property name="configLocation"> <value>classpath:hibernate.cfg.xml</value> 
+			</property> -->
+
 		<!-- 将数据源注入到SessionFactory中，同时加入映射文件的路径和数据库的方言等配置 -->
-        <property name="dataSource">
-            <ref bean="dataSource"/>
-        </property>
-        <property name="mappingDirectoryLocations">
-            <value>classpath:com/gibson/mssh/cn</value>
-        </property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hbm2ddl.auto">update</prop>
-            </props>
-        </property>
-    </bean>
-    
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="mappingDirectoryLocations">
+			<value>classpath:com/gibson/mssh/cn</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="userLogin" class="com.gibson.mssh.cn.controller.UserAction"
+		scope="prototype">
+		<property name="param" value="springControlStruts" />
+	</bean>
+
 </beans>

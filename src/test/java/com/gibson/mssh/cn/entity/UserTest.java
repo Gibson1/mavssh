@@ -1,4 +1,4 @@
-package com.gibson.mssh.cn;
+package com.gibson.mssh.cn.entity;
 
 import java.util.UUID;
 
@@ -10,65 +10,12 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class User {
+import com.gibson.mssh.cn.entity.User;
 
-	private String Uid;
-	private String name;
-	private Integer age;
+import junit.framework.TestCase;
 
-	
+public class UserTest extends TestCase{
 
-	/**
-	 * @return the uid
-	 */
-	public String getUid() {
-		return Uid;
-	}
-
-	/**
-	 * @param uid the uid to set
-	 */
-	public void setUid(String uid) {
-		Uid = uid;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @return the age
-	 */
-	public Integer getAge() {
-		return age;
-	}
-
-	/**
-	 * @param age
-	 *            the age to set
-	 */
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Test
 	public void testSpringEnv() {
@@ -97,6 +44,7 @@ public class User {
 		User p = (User) context.getBean("user");
 		p.setUid(UUID.randomUUID().toString());
 		p.setName("Gibson");
+		p.setPassword("default");
 		// 保存对象
 		session.save(p);
 		// 提交事务
@@ -116,7 +64,8 @@ public class User {
 		
 		User p = (User) context.getBean("user");
 		p.setUid(UUID.randomUUID().toString());
-		p.setName("Catherine");
+		p.setName("gichen");
+		p.setPassword("qwer1234");
 		session.save(p);
 		tx.commit();
 		session.close();

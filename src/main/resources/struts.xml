@@ -4,6 +4,14 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<!-- 告诉struts由spring容器作为bean工厂 -->
+	<constant name="struts.action.extension" value="do,action" />
 	<constant name="struts.objectFactory" value="spring"></constant>
-	<include file="struts/struts-user.xml" />
+
+	<package name="base" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="needAuth" type="redirect">/login.jsp</result>
+		</global-results>
+	</package>
+	
+	<include file="struts-user.xml" />
 </struts>

@@ -27,7 +27,7 @@
 			<ref bean="dataSource" />
 		</property>
 		<property name="mappingDirectoryLocations">
-			<value>classpath:com/gibson/mssh/cn/entity</value>
+			<value>classpath*:com/gibson/mssh/cn/entity</value>
 		</property>
 		<property name="hibernateProperties">
 			<props>

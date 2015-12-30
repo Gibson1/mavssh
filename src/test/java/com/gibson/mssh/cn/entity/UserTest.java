@@ -66,6 +66,7 @@ public class UserTest extends TestCase{
 		p.setUid(UUID.randomUUID().toString());
 		p.setName("gichen");
 		p.setPassword("qwEr1234");
+		p.setAge((int) Math.round(1+100*Math.random()));
 		session.save(p);
 		tx.commit();
 		session.close();

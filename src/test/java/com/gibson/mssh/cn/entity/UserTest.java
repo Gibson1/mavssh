@@ -44,6 +44,7 @@ public class UserTest extends TestCase{
 		User p = (User) context.getBean("user");
 		p.setUid(UUID.randomUUID().toString());
 		p.setName("Gibson");
+		p.setName("吉布森");
 		p.setPassword("default");
 		// 保存对象
 		session.save(p);

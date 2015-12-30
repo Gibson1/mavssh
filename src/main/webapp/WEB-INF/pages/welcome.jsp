@@ -12,5 +12,7 @@
 	<br />
 	<br />
 	<br /> Here is the page after login.
+	<br />
+	<div align="center"><input type="button" value="Log Out" onclick="location.href=window.location.origin+'/MSSH/user/logout.do'"/></div>
 </body>
 </html>

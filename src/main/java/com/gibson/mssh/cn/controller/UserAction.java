@@ -109,5 +109,16 @@ public class UserAction extends ActionSupport{
 		
 		return returnCode;
 	}
+	
+
+	public String logout() {
+		
+		String returnCode="needAuth";
+		
+		currentSession=ActionContext.getContext().getSession();
+		currentSession.clear();
+		
+		return returnCode;
+	}
 
 }

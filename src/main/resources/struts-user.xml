@@ -6,7 +6,12 @@
 	<package name="user" namespace="/user" extends="base">
 		<!-- 这里action对象的创建有spring容器管理，所以class值不再指定具体的全路径类名，而是直接从spring容器中取，这里的值为spring容器管理action的id值 -->
 		<action name="login" class="userLogin" method="login">
+			<result name="success" type="redirectAction">afterlogin.do</result>
+		</action>
+		<action name="afterlogin" class="afterLogin" method="execute">
 			<result name="success">/WEB-INF/pages/welcome.jsp</result>
+		</action>
+		<action name="logout" class="userLogin" method="logout">
 		</action>
 	</package>
 </struts>

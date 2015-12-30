@@ -69,5 +69,9 @@
 		scope="prototype">
 		<!-- <property name="param" value="springControlStruts" /> -->
 	</bean>
+	
+	<bean id="afterLogin" class="com.gibson.mssh.cn.controller.AfterLoginAction"
+		scope="prototype">
+	</bean>
 
 </beans>

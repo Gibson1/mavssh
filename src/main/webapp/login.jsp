@@ -17,6 +17,11 @@
 	}
 </script>
 <style>
+body {
+	background: black;
+	color: white;
+}
+
 table, th, td {
 	border: 0px solid black;
 	border-collapse: collapse;
@@ -35,26 +40,28 @@ th, td {
 	<br />
 	<br />
 	<br />
-	<form action="user/login.do" method="post">
-		<table align="center" style="width: 50%">
-			<colgroup>
-				<col span="1" width="30%" />
-				<col span="1" width="70%" />
-			</colgroup>
-			<tr>
-				<td><label>User</label></td>
-				<td><input type="text" id="username" name="user.name"
-					defaultValue="type your user name" required /></td>
-			<tr>
-				<td><label>Password</label></td>
-				<td><input type="password" id="password" name="user.password"
-					value="" required /></td>
-			</tr>
-			<tr>
-				<td span="2"><input type="submit" value="Login" /></td>
-			</tr>
-		</table>
-	</form>
+	<div align="center">
+		<form action="user/login.do" method="post">
+			<table align="center" style="width: 50%">
+				<colgroup>
+					<col span="1" width="50%" />
+					<col span="1" width="50%" />
+				</colgroup>
+				<tr>
+					<td align="right"><label>User</label></td>
+					<td align="left"><input type="text" id="username"
+						name="user.name" defaultValue="type your user name" required /></td>
+				<tr>
+					<td align="right"><label>Password</label></td>
+					<td align="left"><input type="password" id="password"
+						name="user.password" value="" required /></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="Login" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 
 </body>
 </html>

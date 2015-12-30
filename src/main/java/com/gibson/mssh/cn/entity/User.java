@@ -5,13 +5,17 @@ import java.io.Serializable;
 import org.hibernate.annotations.Entity;
 
 @Entity
-public class User implements Serializable{
+public class User implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5516449159729571638L;
 	private String Uid;
 	private String name;
 	private String password;
 	private Integer age;
-	
+
 	public String getPassword() {
 		return password;
 	}
@@ -28,7 +32,8 @@ public class User implements Serializable{
 	}
 
 	/**
-	 * @param uid the uid to set
+	 * @param uid
+	 *            the uid to set
 	 */
 	public void setUid(String uid) {
 		Uid = uid;

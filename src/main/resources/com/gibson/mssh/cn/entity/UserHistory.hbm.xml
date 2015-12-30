@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gibson.mssh.cn.entity.UserHistory">
+		<id name="UHR_ID" length="12">
+			<generator class="identity"></generator>
+		</id>
+		<property name="UHR_CODE" length="10"></property>
+		<property name="UHR_USR_ID" type="int"></property>
+		<property name="UHR_RED1" length="2"></property>
+		<property name="UHR_RED2" length="2"></property>
+		<property name="UHR_RED3" length="2"></property>
+		<property name="UHR_RED4" length="2"></property>
+		<property name="UHR_RED5" length="2"></property>
+		<property name="UHR_RED6" length="2"></property>
+		<property name="UHR_BLUE" length="2"></property>
+		<property name="UHR_CREATE_UID" length="2"></property>
+		<property name="UHR_UPDATE_UID" length="2"></property>
+	</class>
+</hibernate-mapping>

@@ -28,8 +28,8 @@ public class UserHistory implements Serializable {
 	private String UHR_RED5;
 	private String UHR_RED6;
 	private String UHR_BLUE;
-	private String HTR_CREATE_UID;
-	private String HTR_UPDATE_UID;
+	private String UHR_CREATE_UID;
+	private String UHR_UPDATE_UID;
 
 	public Long getUHR_ID() {
 		return UHR_ID;
@@ -111,20 +111,20 @@ public class UserHistory implements Serializable {
 		UHR_BLUE = uHR_BLUE;
 	}
 
-	public String getHTR_CREATE_UID() {
-		return HTR_CREATE_UID;
+	public String getUHR_CREATE_UID() {
+		return UHR_CREATE_UID;
 	}
 
-	public void setHTR_CREATE_UID(String hTR_CREATE_UID) {
-		HTR_CREATE_UID = hTR_CREATE_UID;
+	public void setUHR_CREATE_UID(String uHR_CREATE_UID) {
+		UHR_CREATE_UID = uHR_CREATE_UID;
 	}
 
-	public String getHTR_UPDATE_UID() {
-		return HTR_UPDATE_UID;
+	public String getUHR_UPDATE_UID() {
+		return UHR_UPDATE_UID;
 	}
 
-	public void setHTR_UPDATE_UID(String hTR_UPDATE_UID) {
-		HTR_UPDATE_UID = hTR_UPDATE_UID;
+	public void setUHR_UPDATE_UID(String uHR_UPDATE_UID) {
+		UHR_UPDATE_UID = uHR_UPDATE_UID;
 	}
 
 }

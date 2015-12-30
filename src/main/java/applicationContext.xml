@@ -64,6 +64,9 @@
 	<bean name="user" class="com.gibson.mssh.cn.entity.User">
 		<property name="age" value="23" />
 	</bean>
+	
+	<bean name="userhistory" class="com.gibson.mssh.cn.entity.UserHistory">
+	</bean>
 
 	<bean id="userLogin" class="com.gibson.mssh.cn.controller.UserAction"
 		scope="prototype">

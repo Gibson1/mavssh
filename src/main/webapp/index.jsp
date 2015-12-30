@@ -9,7 +9,7 @@
 	<br />
 	<br />
 	<div align="center">
-		<a href="login.jsp">Click to login...</a>
+		<a href='./login.jsp'>Click to login...</a>
 	</div>
 </body>
 </html>

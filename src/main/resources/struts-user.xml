@@ -12,6 +12,7 @@
 			<result name="success">/WEB-INF/pages/welcome.jsp</result>
 		</action>
 		<action name="logout" class="userLogin" method="logout">
+			<result name="success" type="redirect">/</result>
 		</action>
 	</package>
 </struts>

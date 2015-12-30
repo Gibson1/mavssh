@@ -113,7 +113,7 @@ public class UserAction extends ActionSupport{
 
 	public String logout() {
 		
-		String returnCode="needAuth";
+		String returnCode="success";
 		
 		currentSession=ActionContext.getContext().getSession();
 		currentSession.clear();

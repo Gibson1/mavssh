@@ -97,11 +97,11 @@ public class UserAction extends ActionSupport{
 					returnCode="needAuth";
 				}
 			}
-			
-			tx.commit();
-			session.close();
-			factory.close();
 		}
+		
+		tx.commit();
+		session.close();
+		factory.close();
 		
 		if(user != null){
 			this.setUser(null);

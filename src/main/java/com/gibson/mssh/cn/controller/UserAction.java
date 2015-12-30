@@ -40,9 +40,14 @@ public class UserAction extends ActionSupport{
 	public String login() {
 		
 		String returnCode="success";
+		User user=this.getUser();
+		if(user == null){
+			returnCode="needAuth";
+			return returnCode;
+		}
+		
 		currentSession=ActionContext.getContext().getSession();
 		
-		User user=this.getUser();
 		System.out.println(user.getName());
 		System.out.println(user.getPassword());
 		System.out.println("Login meghod of User Action..................");
@@ -97,6 +102,11 @@ public class UserAction extends ActionSupport{
 			session.close();
 			factory.close();
 		}
+		
+		if(user != null){
+			this.setUser(null);
+		}
+		
 		return returnCode;
 	}
 

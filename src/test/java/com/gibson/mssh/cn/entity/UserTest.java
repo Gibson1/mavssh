@@ -65,7 +65,7 @@ public class UserTest extends TestCase{
 		User p = (User) context.getBean("user");
 		p.setUid(UUID.randomUUID().toString());
 		p.setName("gichen");
-		p.setPassword("qwer1234");
+		p.setPassword("qwEr1234");
 		session.save(p);
 		tx.commit();
 		session.close();

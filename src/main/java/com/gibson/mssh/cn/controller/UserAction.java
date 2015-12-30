@@ -6,10 +6,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -66,10 +68,17 @@ public class UserAction extends ActionSupport{
 				System.out.println("login success with existed session attribute uid..........");
 			}
 		}else{
+			/*// search User by query
 			String searchUser="From User u where u.name = :name";
 			Query query = session.createQuery(searchUser);
 			query.setParameter("name",user.getName());
 			List results = (List) query.list();
+			*/
+			
+			// search User by criteria
+			Criteria crit=session.createCriteria(User.class);
+			crit.add(Restrictions.eq("name", user.getName()));
+			List results = crit.list();
 			
 			if(results.size()!=1){
 				returnCode="needAuth";

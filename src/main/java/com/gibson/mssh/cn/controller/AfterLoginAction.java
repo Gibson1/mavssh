@@ -24,6 +24,15 @@ public class AfterLoginAction extends ActionSupport {
 	 * 
 	 */
 	private Map currentSession;
+	private String testname;
+
+	public String getTestName() {
+		return testname;
+	}
+
+	public void setTestName(String testName) {
+		this.testname = testName;
+	}
 
 	public String execute() {
 
@@ -50,6 +59,7 @@ public class AfterLoginAction extends ActionSupport {
 				((org.apache.struts2.dispatcher.SessionMap<String, Object>) currentSession).invalidate();
 			} else {
 				System.out.println("login success with existed session attribute uid..........");
+				//Search history by user
 			}
 
 			tx.commit();
@@ -61,6 +71,8 @@ public class AfterLoginAction extends ActionSupport {
 			currentSession.clear();
 			((org.apache.struts2.dispatcher.SessionMap<String, Object>) currentSession).invalidate();
 		}
+		
+		this.setTestName("Test data from action");
 
 		return returnCode;
 	}

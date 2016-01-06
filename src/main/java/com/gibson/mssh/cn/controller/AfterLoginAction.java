@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.gibson.mssh.cn.entity.User;
+import com.gibson.mssh.cn.entity.UserHistory;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -24,14 +25,14 @@ public class AfterLoginAction extends ActionSupport {
 	 * 
 	 */
 	private Map currentSession;
-	private String testname;
+	private List userHistories;
 
-	public String getTestName() {
-		return testname;
+	public List getUserHistories() {
+		return userHistories;
 	}
 
-	public void setTestName(String testName) {
-		this.testname = testName;
+	public void setUserHistories(List userHistories) {
+		this.userHistories = userHistories;
 	}
 
 	public String execute() {
@@ -59,7 +60,12 @@ public class AfterLoginAction extends ActionSupport {
 				((org.apache.struts2.dispatcher.SessionMap<String, Object>) currentSession).invalidate();
 			} else {
 				System.out.println("login success with existed session attribute uid..........");
-				//Search history by user
+				// Search history by user
+				Integer usr_id=((User)results.iterator().next()).getId();
+				Criteria crituh = session.createCriteria(UserHistory.class);
+				crituh.add(Restrictions.eq("UHR_USR_ID", usr_id));
+				userHistories = crituh.list();
+				
 			}
 
 			tx.commit();
@@ -71,8 +77,6 @@ public class AfterLoginAction extends ActionSupport {
 			currentSession.clear();
 			((org.apache.struts2.dispatcher.SessionMap<String, Object>) currentSession).invalidate();
 		}
-		
-		this.setTestName("Test data from action");
 
 		return returnCode;
 	}

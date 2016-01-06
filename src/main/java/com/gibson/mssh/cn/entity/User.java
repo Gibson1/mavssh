@@ -11,24 +11,32 @@ public class User implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5516449159729571638L;
-	private String Uid;
+	private Integer id;
+	private String uid;
 	private String name;
 	private String password;
 	private Integer age;
 
-	public String getPassword() {
-		return password;
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	/**
 	 * @return the uid
 	 */
 	public String getUid() {
-		return Uid;
+		return uid;
 	}
 
 	/**
@@ -36,7 +44,22 @@ public class User implements Serializable {
 	 *            the uid to set
 	 */
 	public void setUid(String uid) {
-		Uid = uid;
+		this.uid = uid;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password
+	 *            the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	/**

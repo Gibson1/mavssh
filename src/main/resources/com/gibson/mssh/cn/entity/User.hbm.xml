@@ -4,9 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.gibson.mssh.cn.entity.User">
-		<id name="uid" length="40">
-			<generator class="assigned"></generator>
+		<id name="id" type="int" length="11">
+			<generator class="identity"></generator>
 		</id>
+		<property name="uid" length="40"></property>
 		<property name="name" length="20"></property>
 		<property name="age" type="int"></property>
 		<property name="password" length="30"></property>

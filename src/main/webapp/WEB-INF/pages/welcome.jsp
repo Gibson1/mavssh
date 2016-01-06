@@ -4,6 +4,15 @@
 <html>
 <head>
 <title>Welcome</title>
+<style type="text/css">
+.odd {
+	background-color: silver;
+}
+
+.even {
+	background-color: white;
+}
+</style>
 </head>
 <body>
 	<div align="center">
@@ -33,8 +42,9 @@
 					<th>Blue</th>
 					<th>Status</th>
 				</tr>
-				<s:iterator value="UserHistories" status="userhistoryStatus">
-					<tr>
+				<s:iterator value="UserHistories" status="rowstatus">
+					<tr
+						class="<s:if test="#rowstatus.odd == true ">odd</s:if><s:else>even</s:else>">
 						<td><s:property value="UHR_CODE" /></td>
 						<td><s:property value="UHR_RED1" /></td>
 						<td><s:property value="UHR_RED2" /></td>
@@ -46,6 +56,27 @@
 					</tr>
 				</s:iterator>
 			</table>
+			<br />
+			<br />
+			<display:table defaultsort="1" id="UserHistory" name="UserHistories"
+				pagesize="10" requestURI="/user/afterlogin.do" sort="UserHistories">
+				<display:column property="UHR_CODE" title="CODE" sortable="true"
+					defaultorder="ascending"></display:column>
+				<display:column property="UHR_RED1" title="RED01" sortable="true"
+					defaultorder="ascending"></display:column>
+				<display:column property="UHR_RED2" title="RED02" sortable="true"
+					defaultorder="ascending"></display:column>
+				<display:column property="UHR_RED3" title="RED03" sortable="true"
+					defaultorder="ascending"></display:column>
+				<display:column property="UHR_RED4" title="RED04" sortable="true"
+					defaultorder="ascending"></display:column>
+				<display:column property="UHR_RED5" title="RED05" sortable="true"
+					defaultorder="ascending"></display:column>
+				<display:column property="UHR_RED6" title="RED06" sortable="true"
+					defaultorder="ascending"></display:column>
+				<display:column property="UHR_BLUE" title="BLUE" sortable="true"
+					defaultorder="ascending"></display:column>
+			</display:table>
 		</s:if>
 	</div>
 	<br />

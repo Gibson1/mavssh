@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib uri="http://displaytag.sf.net" prefix="display" %>
 <html>
 <head>
 <title>Welcome</title>
@@ -59,7 +60,7 @@
 			<br />
 			<br />
 			<display:table defaultsort="1" id="UserHistory" name="UserHistories"
-				pagesize="10" requestURI="/user/afterlogin.do" sort="UserHistories">
+				pagesize="10" requestURI="" sort="list">
 				<display:column property="UHR_CODE" title="CODE" sortable="true"
 					defaultorder="ascending"></display:column>
 				<display:column property="UHR_RED1" title="RED01" sortable="true"
